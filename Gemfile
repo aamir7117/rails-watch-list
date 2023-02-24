@@ -74,3 +74,7 @@ gem 'rails-controller-testing', group: [ :test ]
 
 # dotenv for creds
 gem "dotenv-rails", groups: [:development, :test]
+
+
+#Cloudinary for file storage
+gem "cloudinary"
