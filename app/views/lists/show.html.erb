@@ -2,6 +2,13 @@
   <h1>List view</h1>
 
   <p><%= @list.name %></p>
+  <% @list.movies.each do |movie| %>
+    <p>Movie:</p>
+    <%= movie.each %>
+  <% end %>
   <p>created_at: <%= @list.created_at %></p>
   <p>updated_at: <%= @list.updated_at %></p>
+
+  <%= link_to 'Back to lists', lists_path %>
+  <p></p>
 </div>
