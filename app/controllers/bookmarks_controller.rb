@@ -5,7 +5,6 @@ class BookmarksController < ApplicationController
     @bookmark.movie = @movie
     @list = List.find(params[:list_id])
     @bookmark.list = @list
-    # debugger
   end
 
   def show
@@ -18,8 +17,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to list_path(id: @bookmark.list_id)
     else
-      debugger
-      render new(params), status: :unprocessable_entity
+      redirect_to list_path(id: @bookmark.list_id)
     end
   end
 
