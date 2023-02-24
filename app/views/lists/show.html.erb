@@ -1,9 +1,10 @@
 <div class="container">
   <h1>List view</h1>
   <p></p>
+  <% photo_key = @list.photo.key || "p31ykpobyeurstjv0ash" %>
   <h3><%= @list.name %></h3>
     <% @list.movies.each do |movie| %>
-      <div class="container card" style='padding: 20px'>
+      <div class="container card" style="padding: 20px; color: white; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<%= cl_image_path photo_key, height: 300, crop: :fill %>')  ">
         <p>Movie: <%= movie.title %></p>
         <p>Overview: <%= movie.overview %></p>
         <p>Poster: <a href=<%= movie.poster_url %> target="_blank">movie_url</a></p>
