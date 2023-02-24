@@ -1,14 +1,20 @@
 <div class="container">
   <h1>List view</h1>
+  <p></p>
+  <h3><%= @list.name %></h3>
+    <% @list.movies.each do |movie| %>
+      <div class="container card" style='padding: 20px'>
+        <p>Movie: <%= movie.title %></p>
+        <p>Overview: <%= movie.overview %></p>
+        <p>Poster: <a href=<%= movie.poster_url %> target="_blank">movie_url</a></p>
+        <p>Rating: <%= movie.rating %></p>
+        <%= @bookmark = Bookmark.where("list_id = #{@list.id} AND movie_id = #{movie.id}").first %>
+        <%= @bookmark.id %>
+        <%= link_to 'Delete this bookmark', list_movie_bookmark_path(list_id: @list.id, movie_id: movie.id, id: @bookmark.id), data: { "turbo-method": :delete } %>
+      </div>
+    <% end %>
 
-  <p><%= @list.name %></p>
-  <% @list.movies.each do |movie| %>
-    <p>Movie:</p>
-    <%= movie.each %>
-  <% end %>
-  <p>created_at: <%= @list.created_at %></p>
-  <p>updated_at: <%= @list.updated_at %></p>
-
+  <%= link_to 'Add a Bookmark', list_movies_path(list_id: @list.id) %>
   <%= link_to 'Back to lists', lists_path %>
   <p></p>
 </div>
