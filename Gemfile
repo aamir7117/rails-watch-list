@@ -71,3 +71,6 @@ end
 
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
+
+# dotenv for creds
+gem "dotenv-rails", groups: [:development, :test]
